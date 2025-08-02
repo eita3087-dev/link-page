@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>リンク追加ツール</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f0f0f0;
+      padding: 30px;
+    }
+    h1 {
+      color: #333;
+    }
+    input {
+      padding: 8px;
+      margin: 5px;
+      width: 300px;
+    }
+    button {
+      padding: 8px 16px;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005fa3;
+    }
+    ul {
+      margin-top: 20px;
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      margin: 10px 0;
+    }
+    a {
+      color: #0077cc;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a:hover {
+      color: #005fa3;
+    }
+  </style>
+</head>
+<body>
+  <h1>リンクを追加しよう</h1>
+  <input type="text" id="urlInput" placeholder="URLを入力してください（例：https://example.com）">
+  <input type="text" id="nameInput" placeholder="リンク名を入力してください（例：Example サイト）">
+  <button onclick="addLink()">追加</button>
+
+  <ul id="linkList">
+    <!-- ここにリンクが追加されます -->
+  </ul>
+
+  <script>
+    function addLink() {
+      const url = document.getElementById("urlInput").value.trim();
+      const name = document.getElementById("nameInput").value.trim();
+      if (url && name) {
+        const li = document.createElement("li");
+        const a = document.createElement("a");
+        a.href = url;
+        a.textContent = name;
+        a.target = "_blank";
+        li.appendChild(a);
+        document.getElementById("linkList").appendChild(li);
+        document.getElementById("urlInput").value = "";
+        document.getElementById("nameInput").value = "";
+      } else {
+        alert("URLとリンク名の両方を入力してください！");
+      }
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
